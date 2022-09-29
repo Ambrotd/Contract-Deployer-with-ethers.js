@@ -25,6 +25,7 @@ async function main() {
   let currentFavoriteNumber = await contract.retrieve();
   console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
   const transactionResponse = await contract.store("213443151453425");
+  const transactionReceipt = await transactionResponse.wait(1);
   currentFavoriteNumber = await contract.retrieve();
   console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
 }
